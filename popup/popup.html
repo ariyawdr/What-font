@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css"/>
+</head>
+<body>
+  <div class="tab-content" id="fontSettingsTab">
+    <h2>Font Settings</h2>
+
+    <div class="setting-group">
+      <label for="fontSource">Font Source:</label>
+      <select id="fontSource">
+        <option value="google">Google Fonts</option>
+        <option value="custom">Custom URL</option>
+      </select>
+    </div>
+
+    <div id="googleFontSettings">
+      <div class="setting-group">
+        <label for="googleFontName">Google Font Name:</label>
+        <input type="text" id="googleFontName" placeholder="e.g., Roboto, Open Sans">
+        <p class="hint">Enter a font name available on Google Fonts.</p>
+      </div>
+    </div>
+
+    <div id="customFontSettings" style="display: none;">
+      <div class="setting-group">
+        <label for="customFontName">Font Name (for CSS):</label>
+        <input type="text" id="customFontName" placeholder="e.g., MyCustomFont">
+         <p class="hint">Define a name for this font (e.g., Vazir, IranSans).</p>
+      </div>
+      <div class="setting-group">
+        <label for="customFontUrl">Font URL (.woff, .woff2, .ttf):</label>
+        <input type="url" id="customFontUrl" placeholder="https://example.com/font.woff2">
+        <p class="hint">Direct link to the font file.</p>
+      </div>
+    </div>
+
+    <div class="setting-group">
+        <label for="fontWeight">Font Weight (optional):</label>
+        <input type="text" id="fontWeight" placeholder="e.g., 400, 700, bold">
+    </div>
+
+    <div class="setting-group">
+      <label for="fontPreview">Live Preview:</label>
+      <div id="fontPreview" style="font-size: 16px; min-height: 30px; border: 1px solid #ccc; padding: 5px; margin-top:5px;">
+        The quick brown fox jumps over the lazy dog. 0123456789
+      </div>
+    </div>
+
+    <div class="button-group">
+      <button id="applyFont">Apply Font</button>
+      <button id="resetFont">Reset to Default</button>
+    </div>
+  </div>
+
+  <!-- Placeholder for other tabs -->
+  <div class="tab-content" id="directionSettingsTab" style="display:none;">
+    <h2>Direction Settings</h2>
+    <p>Settings apply to: <strong id="currentDomainLabel">this site</strong></p>
+
+    <div class="setting-group">
+      <label class="toggle-switch-label" for="autoDirectionToggle">
+        Enable Smart Direction Handling:
+        <input type="checkbox" id="autoDirectionToggle" class="toggle-switch">
+        <span class="slider round"></span>
+      </label>
+      <p class="hint">Automatically adjust text direction for Persian/Arabic content and mixed LTR/RTL text on this website. Default is ON.</p>
+    </div>
+  </div>
+  <div class="tab-content" id="siteExceptionsTab" style="display:none;">
+    <h2>Site Exceptions</h2>
+  </div>
+  <div class="tab-content" id="aboutTab" style="display:none;">
+    <h2>About</h2>
+    <p>Smart Font & Direction Tweaker v0.1.0</p>
+  </div>
+
+  <!-- Add this section before the .tab-navigation div -->
+  <div class="master-toggle-section">
+    <label class="toggle-switch-label" for="masterEnableToggle">
+      Enable Extension for <strong id="masterCurrentDomainLabel">this site</strong>:
+      <input type="checkbox" id="masterEnableToggle" class="toggle-switch">
+      <span class="slider round"></span>
+    </label>
+  </div>
+  <hr class="section-divider">
+
+  <div class="tab-navigation">
+    <button class="tab-button active" data-tab="fontSettingsTab">Fonts</button>
+    <button class="tab-button" data-tab="directionSettingsTab">Direction</button>
+    <button class="tab-button" data-tab="siteExceptionsTab">Exceptions</button>
+    <button class="tab-button" data-tab="aboutTab">About</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
